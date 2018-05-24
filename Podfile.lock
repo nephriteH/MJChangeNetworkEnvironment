@@ -1,0 +1,16 @@
+PODS:
+  - TSUtility (1.0.2)
+
+DEPENDENCIES:
+  - TSUtility
+
+SPEC REPOS:
+  http://gitlab.caiqr.com/zhangjunjie/ExchangePodSpecs.git:
+    - TSUtility
+
+SPEC CHECKSUMS:
+  TSUtility: eb4ba2b547df51d6aecd6e47ef9d944eda11c4e3
+
+PODFILE CHECKSUM: a7dc2a0a5c88c89bb1491056493a6e73ae0264d9
+
+COCOAPODS: 1.5.0

@@ -5,7 +5,7 @@ Pod::Spec.new do |s|
 
 
   s.name         = "MJChangeNetworkEnvironment"
-  s.version      = "0.0.2"
+  s.version      = "0.0.3"
   s.summary      = "this is a simple change network tool"
 
   s.description  = <<-DESC
@@ -27,5 +27,7 @@ Pod::Spec.new do |s|
   s.requires_arc = true
 
   s.swift_version = '4.0'
+
+  s.dependency 'TSUtility'
 
 end

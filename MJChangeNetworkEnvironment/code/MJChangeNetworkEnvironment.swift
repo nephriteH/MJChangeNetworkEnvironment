@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import TSUtility
 
 fileprivate let networkEnvironmentCacheKey = "MJNetworkEnvironmentCacheKey"
 
@@ -139,7 +140,8 @@ fileprivate extension MJChangeNetworkEnvironment{
     fileprivate func compareVersionIsLegal(appStoreVersion: String) {
         
         let localVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
-        if localVersion.compare(appStoreVersion) == ComparisonResult.orderedDescending {
+        
+        if localVersion.ts.versionCompare(appStoreVersion) == ComparisonResult.orderedDescending {
             
             let alert = UIAlertController(title: "切换环境", message: "当前环境: \(self.getCurrentEnvironmentName())", preferredStyle: .alert)
             let cancelAction = UIAlertAction(title: "返回", style: .cancel, handler: nil)
