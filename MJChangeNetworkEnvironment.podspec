@@ -11,7 +11,7 @@ Pod::Spec.new do |s|
   s.description  = <<-DESC
   					MJChangeNetworkEnvironment can change network environment in local app
                    DESC
-
+  s.platform     = :ios, "8.0"
   s.homepage     = "https://gitlab.caiqr.com/ios_module/MJChangeNetworkEnvironment"
   
   s.license      = { :type => "MIT", :file => "LICENSE" }
@@ -20,7 +20,9 @@ Pod::Spec.new do |s|
   
   s.source       = { :git => "http://gitlab.caiqr.com/ios_module/MJChangeNetworkEnvironment.git", :tag => s.version }
 
-  s.source_files  = "code", "code/MJChangeNetworkEnvironment.swift"
+  s.source_files  = "MJChangeNetworkEnvironment/code"
+
+  s.framework  = "UIKit","Foundation"
 
   s.requires_arc = true
 

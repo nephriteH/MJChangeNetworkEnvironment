@@ -38,7 +38,7 @@ public class MJChangeNetworkEnvironment {
     
     /// 获取当前环境
     ///
-    /// - Returns: 返回自定义的环境变量
+    /// - Returns: 返回自定义的环境longPressAction变量
     public func getCacheEnvironmentFlag()-> String? {
         
         if let cacheEnvironment =  UserDefaults.standard.value(forKeyPath: networkEnvironmentCacheKey) as? String {
@@ -52,7 +52,7 @@ public class MJChangeNetworkEnvironment {
 fileprivate extension MJChangeNetworkEnvironment{
     
     //长按手势时间
-    @objc private func longPressAction(){
+    @objc func longPressAction(){
         
         guard (appId != nil) else {
             debugPrint("appId is not config")
