@@ -12,6 +12,18 @@ class ViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.view.backgroundColor = .white
+        
+        print(MJChangeNetworkEnvironment.shared.getCacheEnvironmentFlag())
+        
+        MJChangeNetworkEnvironment.shared.appId = "1291221326"
+        MJChangeNetworkEnvironment.shared.environments = [("生产环境", "1"),("debug环境", "2"),("测试环境", "3")]
+        MJChangeNetworkEnvironment.shared.changeNetworkEvironmentAction = { [weak self] in
+            
+            
+        }
+        MJChangeNetworkEnvironment.shared.targetController = self
+        MJChangeNetworkEnvironment.shared.setUpChangeNetworkEnvironment()
         // Do any additional setup after loading the view, typically from a nib.
     }
 

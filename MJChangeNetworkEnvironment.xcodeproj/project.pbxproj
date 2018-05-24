@@ -14,6 +14,7 @@
 		F515846E20B6521400ED8AEE /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F515846C20B6521400ED8AEE /* LaunchScreen.storyboard */; };
 		F515847920B6521400ED8AEE /* MJChangeNetworkEnvironmentTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F515847820B6521400ED8AEE /* MJChangeNetworkEnvironmentTests.swift */; };
 		F515848420B6521400ED8AEE /* MJChangeNetworkEnvironmentUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = F515848320B6521400ED8AEE /* MJChangeNetworkEnvironmentUITests.swift */; };
+		F515849320B6523F00ED8AEE /* MJChangeNetworkEnvironment.swift in Sources */ = {isa = PBXBuildFile; fileRef = F515849220B6523E00ED8AEE /* MJChangeNetworkEnvironment.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		F515847F20B6521400ED8AEE /* MJChangeNetworkEnvironmentUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MJChangeNetworkEnvironmentUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		F515848320B6521400ED8AEE /* MJChangeNetworkEnvironmentUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MJChangeNetworkEnvironmentUITests.swift; sourceTree = "<group>"; };
 		F515848520B6521400ED8AEE /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		F515849220B6523E00ED8AEE /* MJChangeNetworkEnvironment.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MJChangeNetworkEnvironment.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,6 +99,7 @@
 		F515846220B6521400ED8AEE /* MJChangeNetworkEnvironment */ = {
 			isa = PBXGroup;
 			children = (
+				F515849120B6522C00ED8AEE /* code */,
 				F515846320B6521400ED8AEE /* AppDelegate.swift */,
 				F515846520B6521400ED8AEE /* ViewController.swift */,
 				F515846720B6521400ED8AEE /* Main.storyboard */,
@@ -123,6 +126,14 @@
 				F515848520B6521400ED8AEE /* Info.plist */,
 			);
 			path = MJChangeNetworkEnvironmentUITests;
+			sourceTree = "<group>";
+		};
+		F515849120B6522C00ED8AEE /* code */ = {
+			isa = PBXGroup;
+			children = (
+				F515849220B6523E00ED8AEE /* MJChangeNetworkEnvironment.swift */,
+			);
+			path = code;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -260,6 +271,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				F515846620B6521400ED8AEE /* ViewController.swift in Sources */,
+				F515849320B6523F00ED8AEE /* MJChangeNetworkEnvironment.swift in Sources */,
 				F515846420B6521400ED8AEE /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
