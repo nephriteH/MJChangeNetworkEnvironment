@@ -9,32 +9,34 @@
 import UIKit
 import TSUtility
 
-fileprivate let networkEnvironmentCacheKey = "MJNetworkEnvironmentCacheKey"
+fileprivate let kNetworkEnvironmentCacheKey = "MJNetworkEnvironmentCacheKey"
 
 public class MJChangeNetworkEnvironment {
     
-    static let shared:  MJChangeNetworkEnvironment = MJChangeNetworkEnvironment()
+    public static let shared:  MJChangeNetworkEnvironment = MJChangeNetworkEnvironment()
     private init() {}
     
     ///要添加该功能的controller
-    var targetController: UIViewController?
+    public var targetController: UIViewController?
     
     /// appId : App Store 上的appId，用于获取当前app在商店的版本
-    var appId: String?
+    public var appId: String?
     
     /// environments：事例: 元组中 .0表示该环境的名称  .1表示该环境的具体配置（使用者可以自定义该配置，获取环境时也是该值）{("生产环境","1"),("debug环境","2"),("测试环境","0")}
-    var environments: [(String, String)]?
+    public var environments: [(String, String)]?
     
     ///切换环境时使用者需要进行的操作 例如 清空缓存，或者切换私钥等
-    var changeNetworkEvironmentAction: (()->Void)?
-    
+    public var changeNetworkEvironmentAction: (()->Void)?
     
     /// 安装切换环境的功能
     public func setUpChangeNetworkEnvironment() {
         
-        let long = UILongPressGestureRecognizer(target: self, action: #selector(longPressAction))
-        long.minimumPressDuration = 10
-        self.targetController?.view.addGestureRecognizer(long)
+        if self.targetController != nil {
+            let long = UILongPressGestureRecognizer(target: self, action: #selector(longPressAction))
+            long.minimumPressDuration = 10
+            self.targetController!.view.addGestureRecognizer(long)
+        }
+        
     }
     
     /// 获取当前环境
@@ -42,7 +44,7 @@ public class MJChangeNetworkEnvironment {
     /// - Returns: 返回自定义的环境longPressAction变量
     public func getCacheEnvironmentFlag()-> String? {
         
-        if let cacheEnvironment =  UserDefaults.standard.value(forKeyPath: networkEnvironmentCacheKey) as? String {
+        if let cacheEnvironment =  UserDefaults.standard.value(forKeyPath: kNetworkEnvironmentCacheKey) as? String {
             return cacheEnvironment
         }
         return nil
@@ -141,7 +143,7 @@ fileprivate extension MJChangeNetworkEnvironment{
         
         let localVersion = Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as! String
         
-        if localVersion.ts.versionCompare(appStoreVersion) == ComparisonResult.orderedDescending {
+        if localVersion.ts.versionCompare(appStoreVersion) != ComparisonResult.orderedSame {
             
             let alert = UIAlertController(title: "切换环境", message: "当前环境: \(self.getCurrentEnvironmentName())", preferredStyle: .alert)
             let cancelAction = UIAlertAction(title: "返回", style: .cancel, handler: nil)
@@ -165,7 +167,7 @@ fileprivate extension MJChangeNetworkEnvironment{
     // 本地缓存要切换的环境
     fileprivate func changeEnvironments(environment: (String, String)) {
         
-        UserDefaults.standard.setValue(environment.1, forKeyPath: networkEnvironmentCacheKey)
+        UserDefaults.standard.setValue(environment.1, forKeyPath: kNetworkEnvironmentCacheKey)
         UserDefaults.standard.synchronize()
         self.changeNetworkEvironmentAction?()
         
